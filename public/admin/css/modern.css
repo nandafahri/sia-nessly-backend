@@ -1,0 +1,42 @@
+/* ===== TOPBAR ===== */
+.modern-topbar {
+    border-bottom: 1px solid #ececec;
+    padding: 10px 20px;
+}
+
+/* ===== SIDEBAR ===== */
+.modern-sidebar {
+    background: #111827;
+    width: 230px;
+    border-right: 1px solid #1f2937;
+}
+
+.modern-sidebar .nav-link {
+    color: #d1d5db;
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 8px;
+    transition: 0.25s ease;
+}
+
+.modern-sidebar .nav-link:hover {
+    background: #1f2937;
+    color: white;
+}
+
+.active-modern > a {
+    background: #2563eb !important;
+    color: white !important;
+    border-radius: 8px;
+}
+
+/* ===== FOOTER ===== */
+.modern-footer {
+    border-top: 1px solid #ececec;
+    font-size: 14px;
+}
+
+/* ===== PROFILE IMAGE ===== */
+.img-profile {
+    border: 2px solid #e5e7eb;
+}
