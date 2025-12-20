@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\NotifikasiController;
 use App\Http\Controllers\Admin\PesanHarianController;
 use App\Http\Controllers\Admin\QrController;
 use App\Http\Controllers\Admin\AbsensiController;
+use App\Http\Controllers\Admin\NilaiAkhirController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +33,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/login', 'showLoginForm')->name('login.form')->middleware('guest:admin');
         Route::post('/login', 'login')->name('login');
         Route::post('/logout', 'logout')->name('logout');
+
     });
+
+    
+// Lupa password (belum login)
+Route::get('/forgot-password', [AdminAuthController::class, 'showForgotPasswordEmailForm'])->name('password.email.form');
+Route::post('/forgot-password', [AdminAuthController::class, 'verifyEmail'])->name('password.email.verify');
+
+// Reset password
+Route::get('/reset-password', [AdminAuthController::class, 'showResetForm'])->name('password.reset.form');
+Route::post('/reset-password', [AdminAuthController::class, 'resetPassword'])->name('password.reset');
+
 
     // --- Rute yang memerlukan login admin ---
     Route::middleware('auth:admin')->group(function () {
@@ -66,5 +78,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('notifikasi', NotifikasiController::class);
         Route::resource('pesan', PesanHarianController::class);
         Route::resource('absensi', AbsensiController::class);
+        Route::resource('nilai-akhir', NilaiAkhirController::class);
     });
+
 });

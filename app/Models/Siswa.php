@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Models\NilaiAkhir;
 class Siswa extends Model
 {
     use HasApiTokens, HasFactory;
@@ -38,6 +38,11 @@ class Siswa extends Model
 public function absensi()
 {
     return $this->hasMany(\App\Models\Absensi::class, 'siswa_id');
+}
+
+public function nilaiAkhir()
+{
+    return $this->hasMany(\App\Models\NilaiAkhir::class);
 }
 
 

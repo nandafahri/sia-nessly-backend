@@ -89,7 +89,9 @@ class PesanHarianController extends Controller
         $latest = PesanHarian::orderBy('created_at', 'desc')->first();
 
         return response()->json([
-            "pesan" => $latest ? $latest->pesan : "Belum ada pesan"
+            'judul' => $latest->judul ?? '',
+            'isi' => $latest->pesan ?? '',
+            'updated_at' => $latest ? strtotime($latest->updated_at) : 0
         ]);
     }
 }

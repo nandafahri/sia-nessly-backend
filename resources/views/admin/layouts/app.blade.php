@@ -52,5 +52,8 @@
     <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
 
     @stack('scripts')
+
+    
 </body>
 </html>
+

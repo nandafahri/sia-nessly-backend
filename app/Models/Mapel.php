@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Mapel;
 
 class Mapel extends Model
 {
@@ -20,5 +20,11 @@ public function guru()
 {
     return $this->belongsTo(Guru::class, 'id'); 
 }
+
+public function nilaiAkhir()
+{
+    return $this->hasMany(\App\Models\NilaiAkhir::class);
+}
+
 
 }

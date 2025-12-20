@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Nilai;
+use App\Services\NilaiAkhirService;
+
+
 
 class NilaiController extends Controller
 {

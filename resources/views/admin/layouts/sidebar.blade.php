@@ -55,12 +55,44 @@
     </li>
 
 
-    {{-- 6. NILAI --}}
-    <li class="nav-item {{ (request()->routeIs('admin.nilai.*')) ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.nilai.index') }}">
-            <i class="fas fa-fw fa-chart-bar"></i> {{-- Icon Chart yang lebih sesuai untuk Nilai --}}
-            <span>Nilai</span></a>
+    @php
+        $isNilaiActive = request()->routeIs('admin.nilai.*') || request()->routeIs('admin.nilai-akhir.*');
+    @endphp
+
+    {{-- 6. NILAI (SUB MENU) --}}
+    <li class="nav-item {{ $isNilaiActive ? 'active' : '' }}">
+        <a class="nav-link collapsed no-caret"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseNilai"
+        aria-expanded="{{ $isNilaiActive ? 'true' : 'false' }}"
+        aria-controls="collapseNilai">
+
+            <i class="fas fa-fw fa-chart-bar"></i>
+            <span>Nilai</span>
+        </a>
+
+        <div id="collapseNilai"
+            class="collapse {{ $isNilaiActive ? 'show' : '' }}"
+            data-parent="#accordionSidebar">
+
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Manajemen Nilai</h6>
+
+                <a class="collapse-item {{ request()->routeIs('admin.nilai.index') ? 'active' : '' }}"
+                href="{{ route('admin.nilai.index') }}">
+                    <i class="fas fa-book mr-2"></i> Nilai
+                </a>
+
+                <a class="collapse-item {{ request()->routeIs('admin.nilai-akhir.index') ? 'active' : '' }}"
+                href="{{ route('admin.nilai-akhir.index') }}">
+                    <i class="fas fa-chart-line mr-2"></i> Nilai Akhir
+                </a>
+            </div>
+        </div>
     </li>
+
+
 
     {{-- 7. JADWAL --}}
     <li class="nav-item {{ (request()->routeIs('admin.jadwal.*')) ? 'active' : '' }}">
@@ -106,3 +138,11 @@
     </div>
 
 </ul>
+
+<style>
+    /* Hilangkan caret / panah dropdown sidebar */
+    .sidebar .nav-link::after,
+    .sidebar .nav-link.collapsed::after {
+        display: none !important;
+    }
+</style>

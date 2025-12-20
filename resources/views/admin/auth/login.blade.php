@@ -326,8 +326,11 @@
                             </form>
 
                             <div class="text-center">
-                                <a class="small" href="#">Lupa Kata Sandi?</a>
+                                <a class="small text-white" href="{{ route('admin.password.email.form') }}">
+                                    Lupa Kata Sandi?
+                                </a>
                             </div>
+
 
                         </div>
                     </div>
