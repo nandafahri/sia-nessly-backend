@@ -70,4 +70,5 @@ class NilaiController extends Controller
             ], 500);
         }
     }
+
 }

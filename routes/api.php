@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\NotifikasiController;
 use App\Http\Controllers\Api\PesanHarianController;
 use App\Http\Controllers\Api\AbsenApiController;
 use App\Http\Controllers\Api\StatusAbsensiController;
-
+use App\Http\Controllers\Api\NilaiAkhirController;
 
 
 Route::post('/login-siswa', [SiswaAuthController::class, 'login']);
@@ -20,6 +20,7 @@ Route::post('/siswa/verify', [SiswaAuthController::class, 'verifyAccount']);
 Route::put('/siswa/update-email', [SiswaAuthController::class, 'updateEmail']);
 Route::get('/notifikasi', [NotifikasiController::class, 'index']);
 Route::get('/pesan-hari-ini', [PesanHarianController::class, 'apiGetLatest']);
+Route::get('/nilai-akhir', [NilaiAkhirController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/absen/{qrToken}', [AbsenApiController::class, 'absen']);
