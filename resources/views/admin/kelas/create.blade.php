@@ -37,9 +37,8 @@
                     <label for="jurusan">Jurusan</label>
                     <select class="form-control @error('jurusan') is-invalid @enderror" id="jurusan" name="jurusan">
                         <option value="">Pilih Jurusan</option>
-                        <option value="Rekayasa Perangkat Lunak" {{ old('jurusan') == 'Rekayasa Perangkat Lunak' ? 'selected' : '' }}>Rekayasa Perangkat Lunak</option>
-                        <option value="Teknik Komputer Jaringan" {{ old('jurusan') == 'Teknik Komputer Jaringan' ? 'selected' : '' }}>Teknik Komputer Jaringan</option>
-                        <option value="Multimedia" {{ old('jurusan') == 'Multimedia' ? 'selected' : '' }}>Multimedia</option>
+                        <option value="IPA" {{ old('jurusan') == 'IPA' ? 'selected' : '' }}>IPA</option>
+                        <option value="IPS" {{ old('jurusan') == 'IPS' ? 'selected' : '' }}>IPS</option>
                     </select>
                     @error('jurusan') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>

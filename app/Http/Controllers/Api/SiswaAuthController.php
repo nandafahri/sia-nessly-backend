@@ -334,8 +334,12 @@ class SiswaAuthController extends Controller
                     'nama' => $siswa->nama,
                     'nisn' => $siswa->nisn,
                     'email' => $siswa->email,
-                    'kelas' => $siswa->kelas->nama_kelas ?? null,
+
                     'kelas_id' => $siswa->kelas_id,
+                    'kelas' => $siswa->kelas->nama_kelas ?? null,
+
+                    'tingkat' => $siswa->kelas->tingkat ?? null, // ✅ TAMBAHKAN INI
+
                     'jenis_kelamin' => $siswa->jenis_kelamin,
                     'alamat' => $siswa->alamat,
                     'nomor_telepon' => $siswa->nomor_telepon,

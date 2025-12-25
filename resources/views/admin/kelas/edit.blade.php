@@ -35,7 +35,11 @@
                 {{-- Field Jurusan --}}
                 <div class="form-group">
                     <label for="jurusan">Jurusan</label>
-                    <input type="text" class="form-control @error('jurusan') is-invalid @enderror" id="jurusan" name="jurusan" value="{{ old('jurusan', $kelas->jurusan) }}" required>
+                    <select class="form-control @error('jurusan') is-invalid @enderror" id="jurusan" name="jurusan" required>
+                        <option value="">Pilih Jurusan</option>
+                        <option value="IPA" {{ old('jurusan', $kelas->jurusan) == 'IPA' ? 'selected' : '' }}>IPA</option>
+                        <option value="IPS" {{ old('jurusan', $kelas->jurusan) == 'IPS' ? 'selected' : '' }}>IPS</option>
+                    </select>
                     @error('jurusan')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
